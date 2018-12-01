@@ -4,6 +4,7 @@ import {Route, location} from '@hyperapp/router'
 import * as data from './data'
 import Header from './components/header/header'
 import Browse from './components/browse/browse'
+import Ask from './components/ask/ask'
 import Question from './components/question/question'
 import styles from './app.scss'
 
@@ -40,6 +41,11 @@ export function view(state, actions) {
         path: '/question/:id',
         render: ({location}) =>
           Question({id: parseQuestionIdFromPath(location.pathname), data: state.data}),
+      }),
+      Route({
+        path: '/ask',
+        render: () =>
+          Ask(),
       }),
     ],
   )
