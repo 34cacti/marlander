@@ -1,0 +1,11 @@
+@import 'normalize.css/normalize.css';
+
+$color-foreground: #333;
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Helvetica, Arial, sans;
+  font-size: 12pt;
+  color: $color-foreground;
+}

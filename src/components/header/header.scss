@@ -1,0 +1,34 @@
+@import 'src/utils/style-utils.scss';
+
+$header-background: #888;
+$header-foreground: #eee;
+
+.header {
+  background: $header-background;
+  color: $header-foreground;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand {
+  @include flex-center;
+  font-size: 24pt;
+  padding: 0.25em;
+}
+
+.controls {
+  @include flex-row;
+}
+
+.user {
+  @include flex-center;
+  @include flex-column;
+  padding: 1em;
+
+  .score {
+    padding-top: 0.25em;
+    font-size: 80%;
+  }
+}

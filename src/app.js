@@ -1,30 +1,42 @@
 import * as html from '@hyperapp/html'
+import {Route, location} from '@hyperapp/router'
 
 import * as data from './data'
+import Header from './components/header/header'
+import Browse from './components/browse/browse'
+import styles from './app.scss'
 
 export const actions = {
-  noop: () => (state, actions) => ({...state}),
+  location: location.actions,
 }
 
 export function initialState() {
     return {
+      location: location.state,
       users: data.users,
       comments: data.comments,
       answers: data.answers,
       questions: data.questions,
+      tags: data.tags,
+      user: 1,
     }
 }
 
 export function view(state, actions) {
   return html.div(
     {
-      id: 'app',
+      class: styles.app,
     },
     [
-      html.div(JSON.stringify(state.users)),
-      html.div(JSON.stringify(state.comments)),
-      html.div(JSON.stringify(state.answers)),
-      html.div(JSON.stringify(state.questions)),
+      Header({user: state.users[state.user]}),
+      Route({
+        path: '/',
+        render: () => Browse({data}),
+      }),
+      Route({
+        path: '/:',
+        render: () => html.div('404'),
+      }),
     ],
   )
 }

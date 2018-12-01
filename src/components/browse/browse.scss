@@ -1,0 +1,22 @@
+@import 'src/utils/style-utils.scss';
+
+.browse {
+  @include flex-row;
+  justify-content: center;
+}
+
+.categories {
+  background: #aaa;
+  width: 250px;
+  margin-right: 2em;
+}
+
+.questions {
+  @include flex-column;
+  width: 800px;
+}
+
+.questionCard {
+  margin: 1em;
+  background: #bbb;
+}
