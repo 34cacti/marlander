@@ -3,12 +3,24 @@
 .browse {
   @include flex-row;
   justify-content: center;
+  padding: 1em 0;
 }
 
 .categories {
-  background: #aaa;
-  width: 250px;
-  margin-right: 2em;
+  background: #eee;
+  border: 1px solid #ccc;
+  width: 150px;
+  height: 100%;
+  margin-right: 1em;
+  padding: 1em;
+
+  div {
+    margin-bottom: 0.5em;
+    color: blue;
+  }
+  div:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .questions {
@@ -17,6 +29,16 @@
 }
 
 .questionCard {
-  margin: 1em;
-  background: #bbb;
+  margin-bottom: 1em;
+  background: #eee;
+  color: #555;
+  border: 1px solid #ccc;
+  padding: 1em;
+  
+  a {
+    color: blue;
+  }
+}
+.questionCard:last-child {
+  margin-bottom: 0;
 }

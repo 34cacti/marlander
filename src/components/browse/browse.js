@@ -25,17 +25,17 @@ function Categories(categories) {
 function Questions(questions) {
   return html.div(
     {class: styles.questions},
-    questions.map(q => QuestionCard(q)),
+    questions.map((q, i) => QuestionCard(i, q)),
   )
 }
 
-function QuestionCard(question) {
+function QuestionCard(id, question) {
   return html.div(
     {
       class: styles.questionCard,
     },
     [
-      html.div(question.title),
+      html.a({href: `/question/${id}`}, question.title),
       html.p(question.body),
       html.div(question.tags.map(t => html.span(t))),
     ]

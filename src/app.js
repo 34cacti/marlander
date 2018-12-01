@@ -34,8 +34,9 @@ export function view(state, actions) {
         render: () => Browse({data}),
       }),
       Route({
-        path: '/:',
-        render: () => html.div('404'),
+        path: '/question/:id',
+        render: ({location}) =>
+          html.div(`question page for question ${JSON.stringify(location)}`),
       }),
     ],
   )

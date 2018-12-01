@@ -19,7 +19,7 @@ function Controls(user) {
   return html.div(
     {class: styles.controls},
     [
-      html.input({placeholder: 'search'}),
+      html.input({class: styles.search, placeholder: 'search'}),
       html.button('Ask'),
       html.div(
         {class: styles.user},
