@@ -4,6 +4,7 @@ import {Route, location} from '@hyperapp/router'
 import * as data from './data'
 import Header from './components/header/header'
 import Browse from './components/browse/browse'
+import Question from './components/question/question'
 import styles from './app.scss'
 
 export const actions = {
@@ -13,11 +14,13 @@ export const actions = {
 export function initialState() {
     return {
       location: location.state,
-      users: data.users,
-      comments: data.comments,
-      answers: data.answers,
-      questions: data.questions,
-      tags: data.tags,
+      data: {
+        users: data.users,
+        comments: data.comments,
+        answers: data.answers,
+        questions: data.questions,
+        tags: data.tags,
+      },
       user: 1,
     }
 }
@@ -28,16 +31,22 @@ export function view(state, actions) {
       class: styles.app,
     },
     [
-      Header({user: state.users[state.user]}),
+      Header({user: state.data.users[state.user]}),
       Route({
         path: '/',
-        render: () => Browse({data}),
+        render: () => Browse({data: state.data}),
       }),
       Route({
         path: '/question/:id',
         render: ({location}) =>
-          html.div(`question page for question ${JSON.stringify(location)}`),
+          Question({id: parseQuestionIdFromPath(location.pathname), data: state.data}),
       }),
     ],
   )
+}
+
+
+function parseQuestionIdFromPath(path) {
+  const parts = path.split('/')
+  return Number(parts[parts.length - 1])
 }
