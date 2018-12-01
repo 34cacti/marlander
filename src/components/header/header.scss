@@ -19,6 +19,9 @@ $header-foreground: #333;
   width: 100px;
   color: #555;
   font-weight: bold;
+  a {
+    text-decoration: none;
+  }
 }
 
 .controls {

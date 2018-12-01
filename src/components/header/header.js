@@ -9,7 +9,8 @@ export default function view({user}) {
       class: styles.header,
     },
     [
-      html.div({class: styles.brand}, 'First Come First Serve'),
+      html.div({class: styles.brand},
+      html.a({href: `/`},  'First Come First Serve')),
       Controls(user),
     ],
   )
