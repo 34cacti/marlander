@@ -43,9 +43,7 @@ export function view(state, actions) {
           Question({id: parseQuestionIdFromPath(location.pathname), data: state.data}),
       }),
       Route({
-        path: '/ask',
-        render: () =>
-          Ask(),
+        render: () => Ask(),
       }),
     ],
   )
