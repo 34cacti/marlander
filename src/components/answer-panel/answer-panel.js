@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import styles from './answer-panel.scss'
 import Editor from '../editor/editor'
 
-export default function view({data, actions}) {
+export default function view({data, actions}, toggleAnswerPanel) {
   return html.div(
     {
       class: styles.answerPanel,
@@ -23,6 +23,7 @@ export default function view({data, actions}) {
         },
         onmousedown: ev => actions.onResizeStart(ev),
       }),
+      html.button({onclick: () => toggleAnswerPanel()}, 'x'),
       Editor(),
     ],
   )

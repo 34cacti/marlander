@@ -11,6 +11,17 @@ import styles from './app.scss'
 export const actions = {
   location: location.actions,
 
+  toggleAnswerPanel: () => (state, actions) => ({
+    ...state,
+    widgets: {
+      ...state.widgets,
+      answerPanel: {
+        ...state.widgets.answerPanel,
+        open: !state.widgets.answerPanel.open,
+      },
+    },
+  }),
+
   widgets: {
     answerPanel: {
       onResizeStart: ev => (state, actions) => ({
@@ -36,7 +47,7 @@ export const actions = {
         mouseDownY: ev.clientY,
       }),
     },
-  }
+  },
 }
 
 export function initialState() {
@@ -52,6 +63,7 @@ export function initialState() {
       user: 1,
       widgets: {
         answerPanel: {
+          open: false,
           height: 200,
           mouseDown: false,
           mouseDownY: null,
@@ -81,6 +93,7 @@ export function view(state, actions) {
               data: state.widgets.answerPanel,
               actions: actions.widgets.answerPanel,
             },
+            toggleAnswerPanel: actions.toggleAnswerPanel,
           }),
       }),
       Route({

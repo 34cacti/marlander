@@ -4,21 +4,23 @@ import classNames from 'classnames'
 import styles from './question.scss'
 import AnswerPanel from '../answer-panel/answer-panel'
 
-export default function view({id, data, answerPanelDataAndActions}) {
+export default function view({id, data, answerPanelDataAndActions, toggleAnswerPanel}) {
   const q = data.questions[id]
   return html.div(
     {
       class: styles.questionPage,
     },
     [
-      Question(q, data),
+      Question(q, data, toggleAnswerPanel),
       Answers(q, data),
-      AnswerPanel(answerPanelDataAndActions),
+      answerPanelDataAndActions.data.open
+        ? AnswerPanel(answerPanelDataAndActions, toggleAnswerPanel)
+        : null,
     ],
   )
 }
 
-function Question(question, data) {
+function Question(question, data, toggleAnswerPanel) {
   return html.div(
     {
       class: styles.question,
@@ -27,6 +29,7 @@ function Question(question, data) {
       html.h2(question.title),
       html.div(data.users[question.user].name),
       html.h2({class: styles.score}, question.score),
+      html.button({onclick: () => toggleAnswerPanel()}, 'Answer'),
       Comments(question, data),
     ]
   )
