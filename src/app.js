@@ -10,6 +10,33 @@ import styles from './app.scss'
 
 export const actions = {
   location: location.actions,
+
+  widgets: {
+    answerPanel: {
+      onResizeStart: ev => (state, actions) => ({
+        ...state,
+        mouseDown: true,
+        mouseDownY: ev.clientY,
+      }),
+      onResize: ev => (state, actions) => {
+        ev.stopPropagation()
+
+        if (!state.mouseDown) return
+
+        const height = ev.target.parentElement.offsetHeight
+        const yChange = state.mouseDownY - ev.clientY
+        return {
+          ...state,
+          height: height + yChange,
+        }
+      },
+      onResizeEnd: ev => (state, actions) => ({
+        ...state,
+        mouseDown: false,
+        mouseDownY: ev.clientY,
+      }),
+    },
+  }
 }
 
 export function initialState() {
@@ -23,6 +50,13 @@ export function initialState() {
         tags: data.tags,
       },
       user: 1,
+      widgets: {
+        answerPanel: {
+          height: 200,
+          mouseDown: false,
+          mouseDownY: null,
+        },
+      },
     }
 }
 
@@ -40,7 +74,14 @@ export function view(state, actions) {
       Route({
         path: '/question/:id',
         render: ({location}) =>
-          Question({id: parseQuestionIdFromPath(location.pathname), data: state.data}),
+          Question({
+            id: parseQuestionIdFromPath(location.pathname),
+            data: state.data,
+            answerPanelDataAndActions: {
+              data: state.widgets.answerPanel,
+              actions: actions.widgets.answerPanel,
+            },
+          }),
       }),
       Route({
         path: '/ask',

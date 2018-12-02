@@ -1,5 +1,39 @@
 @import 'src/utils/style-utils.scss';
 
 .questionPage {
+  margin: 0 auto;
+  max-width: 800px;
+  margin-top: 1em;
+}
 
+.question, .answer {
+  background: #eee;
+  padding: 1em;
+}
+
+.question {
+}
+
+.answers {
+  margin-top: 1em;
+}
+
+.comments {
+
+}
+
+.comment {
+  @include flex-row;
+  font-size: 80%;
+  color: #555;
+  margin-bottom: 0.25em;
+  &:last-child { margin-bottom: 0; }
+
+  .commentUser {
+
+  }
+
+  .commentBody {
+    margin-right: 1em;
+  }
 }

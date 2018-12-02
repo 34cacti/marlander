@@ -14,11 +14,12 @@ $header-foreground: #333;
 
 .brand {
   @include flex-center;
-  font-size: 14pt;
+  font-size: 12pt;
   padding: 0.5em;
   width: 100px;
   color: #555;
   font-weight: bold;
+  line-height: 1.25em;
   a {
     text-decoration: none;
   }

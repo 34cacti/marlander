@@ -1,0 +1,31 @@
+@import 'src/utils/style-utils.scss';
+
+.editor {
+  textarea {
+    resize: vertical;
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    padding: 0.5em;
+    border: none;
+    background: #eee;
+  }
+}
+
+.toolbar {
+  @include flex-row;
+  background: #333;
+  color: #ddd;
+}
+
+.toolbarButton {
+  @include flex-center;
+  font-weight: bold;
+  width: 2em;
+  height: 2em;
+  padding: 1em;
+  background: #444;
+  border: 1px solid #555;
+  margin: 0.5em;
+  margin-right: 0;
+}

@@ -1,0 +1,21 @@
+@import 'src/utils/style-utils.scss';
+
+.answerPanel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1em;
+  background: #ccc;
+}
+
+.resizeHandle {
+  position: absolute;
+  top: -3px;
+  left: calc(50% - 350px / 2);
+  height: 7px;
+  width: 350px;
+  border-top: 3px solid gray;
+  border-bottom: 3px solid gray;
+  cursor: pointer;
+}
