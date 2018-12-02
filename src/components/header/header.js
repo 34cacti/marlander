@@ -10,7 +10,7 @@ export default function view({user}) {
     },
     [
       html.div({class: styles.brand},
-      html.a({href: `/`},  'First Come First Serve')),
+      html.a({href: '/'}, 'First Come First Serve')),
       Controls(user),
     ],
   )
@@ -21,7 +21,6 @@ function Controls(user) {
     {class: styles.controls},
     [
       html.input({class: styles.search, placeholder: 'search'}),
-      html.button('Ask'),
       html.div(
         {class: styles.user},
         [
@@ -29,7 +28,12 @@ function Controls(user) {
           html.div({class: styles.score}, user.score),
         ]
       ),
-      html.button('log out'),
+      html.div([
+        html.a({href: '/ask'}, 'Ask'),
+      ]),
+      html.div([
+        html.a({href: '/'}, 'log out'),
+      ]),
     ]
   )
 }
