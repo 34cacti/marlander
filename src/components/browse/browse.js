@@ -45,10 +45,9 @@ function Sort() {
       class: styles.sort,
     },
     [
-      html.div({class: styles.sortItem}, 'Featured'),
-      html.div({class: styles.sortItem}, 'New'),
-      html.div({class: styles.sortItem}, 'Top'),
-      html.div({class: styles.sortItem}, 'Unanswered'),
+      html.div({class: styles.sortButton}, 'New'),
+      html.div({class: styles.sortButton}, 'Top'),
+      html.div({class: styles.sortButton}, 'Unanswered'),
     ]
   )
 }

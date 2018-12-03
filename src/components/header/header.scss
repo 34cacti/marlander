@@ -33,7 +33,9 @@ $header-foreground: #333;
   .search {
     background: #e7e7e7;
     border: 1px solid #ddd;
-    padding-left: 0.5em;
+    margin-right: 4cm;
+    width: 15cm;
+    padding-left: 1em;
   }
   .search:focus {
     background: #ddd;
@@ -43,6 +45,7 @@ $header-foreground: #333;
     @include flex-center;
     @include flex-column;
     padding: 1em;
+    margin-right: 1cm;
 
     .score {
       padding-top: 0.25em;
