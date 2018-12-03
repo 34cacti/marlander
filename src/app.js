@@ -26,6 +26,7 @@ export const actions = {
     answerPanel: {
       onResizeStart: ev => (state, actions) => ({
         ...state,
+        startingHeight: state.height,
         mouseDown: true,
         mouseDownY: ev.clientY,
       }),
@@ -34,15 +35,16 @@ export const actions = {
 
         if (!state.mouseDown) return
 
-        const height = ev.target.parentElement.offsetHeight
+        // const height = ev.target.parentElement.offsetHeight
         const yChange = state.mouseDownY - ev.clientY
         return {
           ...state,
-          height: height + yChange,
+          height: state.startingHeight + yChange,
         }
       },
       onResizeEnd: ev => (state, actions) => ({
         ...state,
+        startingHeight: state.height,
         mouseDown: false,
         mouseDownY: ev.clientY,
       }),
@@ -65,6 +67,7 @@ export function initialState() {
         answerPanel: {
           open: false,
           height: 200,
+          startingHeight: 200,
           mouseDown: false,
           mouseDownY: null,
         },
