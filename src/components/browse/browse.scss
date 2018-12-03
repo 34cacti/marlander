@@ -48,6 +48,7 @@
 
 .questionCard {
   margin-bottom: 1em;
+  border-radius: 5px;
   background: #eee;
   color: #555;
   border: 1px solid #ccc;
@@ -72,3 +73,23 @@
 .questionCard:last-child {
   margin-bottom: 0;
 }
+
+.miscItems {
+  margin-top: 14.25mm;
+  margin-bottom: 209.5mm;
+}
+
+.sortButton {
+  background-color: #a5a3a3;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 4px;
+  opacity: 0.6;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.sortButton:hover {opacity: 1}
