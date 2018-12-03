@@ -36,7 +36,6 @@ export const actions = {
       }),
       onResize: ev => (state, actions) => {
         ev.stopPropagation()
-        ev.preventDefault()
 
         if (!state.mouseDown) return
 
