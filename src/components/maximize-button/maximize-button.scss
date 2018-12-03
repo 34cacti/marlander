@@ -1,0 +1,11 @@
+.maximizeButton {
+  height: 0.75em;
+  width: 0.75em;
+  opacity: 0.25;
+  font-size: 2em;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}

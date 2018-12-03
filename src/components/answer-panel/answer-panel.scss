@@ -5,8 +5,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 1em;
+  padding: 0 1em 1em;
   background: #ccc;
+
+  textarea {
+    resize: none;
+    height: 100% !important;
+  }
 }
 
 .resizeHandle {
@@ -18,4 +23,14 @@
   border-top: 3px solid gray;
   border-bottom: 3px solid gray;
   cursor: pointer;
+}
+
+.topBar {
+  @include flex-row;
+  flex-direction: row-reverse;
+}
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2em;
 }

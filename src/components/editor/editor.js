@@ -2,14 +2,17 @@ import * as html from '@hyperapp/html'
 import classNames from 'classnames'
 
 import styles from './editor.scss'
+import MaximizeButton from '../maximize-button/maximize-button'
 
-export default function view() {
+export default function view(maximized, maximize, actionButton = null) {
   return html.div(
     {
-      class: styles.editor,
+      id: 'ask-editor',
+      class: classNames(styles.editor, {[styles.fullscreen]: maximized === 'ask-editor'}),
     },
     [
-      Toolbar(),
+      Toolbar(actionButton),
+      html.div({class: styles.maximizeButton}, MaximizeButton(maximize)),
       html.textarea(),
     ],
   )
@@ -29,7 +32,6 @@ function Toolbar() {
       toolbarButton('│☰'),
       toolbarButton('☰'),
       toolbarButton('☰│'),
-      toolbarButton('⤢'),
     ]
   )
 }

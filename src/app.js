@@ -23,6 +23,10 @@ export const actions = {
   }),
 
   widgets: {
+    maximizeWidget: id => (state, actions) => ({
+      ...state,
+      maximizedWidget: state.maximizedWidget === id ? null : id,
+    }),
     answerPanel: {
       onResizeStart: ev => (state, actions) => ({
         ...state,
@@ -32,6 +36,7 @@ export const actions = {
       }),
       onResize: ev => (state, actions) => {
         ev.stopPropagation()
+        ev.preventDefault()
 
         if (!state.mouseDown) return
 
@@ -64,6 +69,7 @@ export function initialState() {
       },
       user: 1,
       widgets: {
+        maximizedWidget: null,
         answerPanel: {
           open: false,
           height: 200,
@@ -84,7 +90,11 @@ export function view(state, actions) {
       Header({user: state.data.users[state.user]}),
       Route({
         path: '/',
-        render: () => Browse({data: state.data}),
+        render: () => Browse({
+          data: state.data,
+          maximizeWidget: actions.widgets.maximizeWidget,
+          maximizedWidget: state.widgets.maximizedWidget,
+        }),
       }),
       Route({
         path: '/question/:id',
@@ -95,13 +105,15 @@ export function view(state, actions) {
             answerPanelDataAndActions: {
               data: state.widgets.answerPanel,
               actions: actions.widgets.answerPanel,
+              maximized: state.widgets.maximizedWidget,
+              maximize: actions.widgets.maximizeWidget,
             },
             toggleAnswerPanel: actions.toggleAnswerPanel,
           }),
       }),
       Route({
         path: '/ask',
-        render: () => Ask(),
+        render: () => Ask(state.widgets.maximizedWidget, actions.widgets.maximizeWidget),
       }),
     ],
   )

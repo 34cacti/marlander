@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import styles from './answer-panel.scss'
 import Editor from '../editor/editor'
 
-export default function view({data, actions}, toggleAnswerPanel) {
+export default function view({data, actions}, toggleAnswerPanel, maximized, maximize) {
   return html.div(
     {
       class: styles.answerPanel,
@@ -23,8 +23,16 @@ export default function view({data, actions}, toggleAnswerPanel) {
         },
         onmousedown: ev => actions.onResizeStart(ev),
       }),
-      html.button({onclick: () => toggleAnswerPanel()}, 'x'),
-      Editor(),
+      html.div(
+        {class: styles.topBar},
+        [
+          html.button(
+            {class: styles.closeButton, onclick: () => toggleAnswerPanel()},
+            'x'
+          ),
+        ],
+      ),
+      Editor(maximized, maximize),
     ],
   )
 }

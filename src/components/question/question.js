@@ -4,29 +4,42 @@ import classNames from 'classnames'
 import styles from './question.scss'
 import AnswerPanel from '../answer-panel/answer-panel'
 
-export default function view({id, data, answerPanelDataAndActions, toggleAnswerPanel}) {
+export default function view({
+    id,
+    data,
+    answerPanelDataAndActions,
+    toggleAnswerPanel,
+    maximize,
+    maximized,
+}) {
   const q = data.questions[id]
   return html.div(
     {
       class: styles.questionPage,
     },
     [
-      Question(q, data, toggleAnswerPanel),
-      Answers(q, data),
+      Question(q, data, toggleAnswerPanel, maximized, maximize),
+      Answers(q, data, maximized, maximize),
       answerPanelDataAndActions.data.open
-        ? AnswerPanel(answerPanelDataAndActions, toggleAnswerPanel)
+        ? AnswerPanel(answerPanelDataAndActions, toggleAnswerPanel, maximized, maximize)
         : null,
     ],
   )
 }
 
-function Question(question, data, toggleAnswerPanel) {
+function Question(question, data, toggleAnswerPanel, maximized, maximize) {
   return html.div(
     {
       class: styles.question,
     },
     [
       html.h2(question.title),
+      html.p(
+        {class: styles.contentBody},
+        [
+          question.body,
+        ],
+      ),
       html.div(data.users[question.user].name),
       html.h2({class: styles.score}, question.score),
       html.button({onclick: () => toggleAnswerPanel()}, 'Answer'),
@@ -57,12 +70,12 @@ function Comments(question, data) {
             html.div({class: styles.commentUser}, commentUser.name),
           ]
         )
-      })
+      }),
     ]
   )
 }
 
-function Answers(question, data) {
+function Answers(question, data, maximized, maximize) {
   const answerIds = question.answers
   if (answerIds.length === 0) return
 
@@ -77,7 +90,7 @@ function Answers(question, data) {
         const answerUser = data.users[answer.user]
         return html.div(
           {
-            class: styles.answer,
+            class: classNames(styles.answer, {[styles.fullscreen]: maximized}),
           },
           [
             html.div(answer.body),
