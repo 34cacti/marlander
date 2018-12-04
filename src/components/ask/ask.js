@@ -38,7 +38,10 @@ function SidePanel(state, currentQuestionTitle) {
 
   filtered.length > 7 ? filtered.push('more...') : null
   return html.div(
-    {class: styles.sidePanel},
+    {
+      class: styles.sidePanel,
+      style: {opacity: filtered.length === 0 ? '0' : '1'},
+    },
     filtered.map(q => html.div(q.title)),
   )
 }
