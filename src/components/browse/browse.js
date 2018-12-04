@@ -70,8 +70,8 @@ function SidePanel(categories) {
       class: styles.sidePanel,
     },
     [
-      Promo(),
       Categories(categories),
+      Promo(),
       MiscItems(),
     ]
   )
@@ -88,7 +88,8 @@ function Promo() {
   return html.div(
     {},
     [
-
+      html.div({class: styles.promoItem},
+        'Meet singles in Hamilton'),
     ]
   )
 }
