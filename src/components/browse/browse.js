@@ -27,13 +27,35 @@ function QuestionCard(id, question, data) {
       class: styles.questionCard,
     },
     [
-      html.a({href: `/question/${id}`}, question.title),
-      html.p(question.body),
       html.div(
-        {class: styles.tags},
-        question.tags.map(t =>
-          html.span({class: styles.tag}, data.tags[t])
-        )
+        {class: styles.questionCardCol},
+        [
+          html.a({ href: `/question/${id}` }, question.title),
+          html.p(question.body),
+          html.div(
+            { class: styles.tags },
+            question.tags.map(t =>
+              html.span({ class: styles.tag }, data.tags[t])
+            )
+          ),
+        ]
+      ),
+      html.div(
+        {class: styles.questionCardCol},
+        [
+          html.div(
+            {class: styles.questionCardScoreContainer},
+            [
+              html.div('↑'),
+              html.div({class: styles.questionCardScore}, question.score),
+              html.div('↓'),
+            ]
+          ),
+          html.div({class: styles.user}, [
+            html.div(data.users[question.user].name),
+            html.div({class: styles.userCursor}, ['score:', data.users[question.user].score]),
+          ]),
+        ]
       ),
     ]
   )
