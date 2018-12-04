@@ -19,14 +19,21 @@ function Form(maximized, maximize, state, actions) {
   return html.div(
     {class: styles.ask},
     [
-      html.button('Post'),
-      html.input({oninput: ev => actions.askTitle(ev.target.value)}),
+      html.div(
+        {class: styles.firstRow},
+        [
+          html.input({oninput: ev => actions.askTitle(ev.target.value)}),
+          html.button('Post'),
+        ]
+      ),
       Editor(maximized, maximize),
       TagAutocomplete({
         currentTags: state.widgets.autocomplete.currentTags,
         currentWord: state.widgets.autocomplete.currentWord,
         updateCurrentWord: actions.widgets.autocomplete.updateCurrentWord,
+        suggestions: state.widgets.autocomplete.suggestions,
         selectSuggestion: actions.widgets.autocomplete.selectSuggestion,
+        allTags: state.data.tags,
       }),
     ]
   )

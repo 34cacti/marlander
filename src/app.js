@@ -28,6 +28,20 @@ export const actions = {
   }),
 
   widgets: {
+    autocomplete: {
+      updateCurrentWord: ({word, allTags}) => (state, actions) => ({
+          ...state,
+          currentWord: word,
+          suggestions: createSuggestions(allTags, word),
+      }),
+      selectSuggestion: tagId => (state, actions) => {
+        return {
+          ...state,
+          currentWord: null,
+          currentTags: [...state.currentTags],
+        }
+      },
+    },
     maximizeWidget: id => (state, actions) => ({
       ...state,
       maximizedWidget: state.maximizedWidget === id ? null : id,
@@ -75,6 +89,11 @@ export function initialState() {
       askTitle: '',
       widgets: {
         maximizedWidget: null,
+        autocomplete: {
+          currentTags: [],
+          currentWord: '',
+          suggestions: [],
+        },
         answerPanel: {
           open: false,
           height: 200,
@@ -134,4 +153,12 @@ export function view(state, actions) {
 function parseQuestionIdFromPath(path) {
   const parts = path.split('/')
   return Number(parts[parts.length - 1])
+}
+
+function createSuggestions(allTags, currentWord) {
+  if (currentWord.length === 0) return []
+
+  return allTags
+    .filter(t => t.toLowerCase().includes(currentWord.toLowerCase()))
+    .slice(0, 5)
 }

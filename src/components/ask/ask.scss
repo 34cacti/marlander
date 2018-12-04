@@ -42,3 +42,14 @@
     height: 300px !important;
   }
 }
+
+.firstRow {
+  @include flex-row;
+  justify-content: space-between;
+  margin-bottom: 1em;
+
+  input {
+    flex: auto;
+    margin-right: 1em;
+  }
+}

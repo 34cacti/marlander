@@ -1,11 +1,45 @@
-.maximizeButton {
-  height: 0.75em;
-  width: 0.75em;
-  opacity: 0.25;
-  font-size: 2em;
-  cursor: pointer;
+@import 'src/utils/style-utils.scss';
 
-  &:hover {
-    opacity: 0.75;
+.autoCompleteInputContainer {
+  @include flex-column;
+
+  .suggestions {
+    border: 1px solid #eee;
+    background: #f8f8f8;
+
+    div {
+      padding: 0.5em;
+      cursor: pointer;
+    }
+    div:hover {
+      background: #eee;
+    }
   }
+}
+
+.currentTags {
+  @include flex-row;
+}
+
+.completedTag {
+  @include flex-row;
+  justify-content: space-between;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  margin-right: 1em;
+}
+
+.completedTagRemove {
+  text-align: center;
+  cursor: pointer;
+  border-radius: 100%;
+  background: #eee;
+  width: 1em;
+  height: 1em;
+  line-height: 12pt;
+}
+
+.completedTagLabel {
+  margin-right: 1em;
 }
