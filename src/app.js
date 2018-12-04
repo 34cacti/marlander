@@ -104,15 +104,16 @@ export function view(state, actions) {
             answerPanelDataAndActions: {
               data: state.widgets.answerPanel,
               actions: actions.widgets.answerPanel,
-              maximized: state.widgets.maximizedWidget,
-              maximize: actions.widgets.maximizeWidget,
             },
             toggleAnswerPanel: actions.toggleAnswerPanel,
+            maximized: state.widgets.maximizedWidget,
+            maximize: actions.widgets.maximizeWidget,
           }),
       }),
       Route({
         path: '/ask',
-        render: () => Ask(state.widgets.maximizedWidget, actions.widgets.maximizeWidget),
+        render: () =>
+          Ask(state.widgets.maximizedWidget, actions.widgets.maximizeWidget, state),
       }),
     ],
   )

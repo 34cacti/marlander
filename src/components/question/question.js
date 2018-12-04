@@ -90,7 +90,7 @@ function Answers(question, data, maximized, maximize) {
         const answerUser = data.users[answer.user]
         return html.div(
           {
-            class: classNames(styles.answer, {[styles.fullscreen]: maximized}),
+            class: classNames(styles.answer),
           },
           [
             html.div(answer.body),
