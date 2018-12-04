@@ -15,16 +15,44 @@ export default function view({
 }) {
   const q = data.questions[id]
   return html.div(
-    {
-      class: styles.questionPage,
-    },
+    {class: styles.questionPage},
     [
-      Question(q, data, toggleAnswerPanel, maximized, maximize),
-      Answers(q, data, maximized, maximize),
-      answerPanelDataAndActions.data.open
-        ? AnswerPanel(answerPanelDataAndActions, toggleAnswerPanel, maximized, maximize)
-        : null,
+      html.div(
+        {class: styles.sidePanel},
+        [
+          html.div({class: styles.relatedQuestionsLabel}, 'Related Questions'),
+          RelatedQuestions(data.questions),
+          Categories(data.tags),
+        ]
+      ),
+      html.div(
+        {class: styles.mainContent},
+        [
+          Question(q, data, toggleAnswerPanel, maximized, maximize),
+          Answers(q, data, maximized, maximize),
+          answerPanelDataAndActions.data.open
+            ? AnswerPanel(answerPanelDataAndActions, toggleAnswerPanel, maximized, maximize)
+            : null,
+        ],
+      ),
     ],
+  )
+}
+
+function RelatedQuestions(questions) {
+  const filtered = questions.filter(q => Math.random() > 0.3)
+  filtered.length > 7 ? filtered.push('more...') : null
+  console.log(filtered)
+  return html.div(
+    {class: styles.related},
+    filtered.map(q => html.div(q.title)),
+  )
+}
+
+function Categories(categories) {
+  return html.div(
+    {class: styles.categories},
+    [...categories, 'more...'].map(c => html.div(c))
   )
 }
 

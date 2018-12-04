@@ -1,10 +1,19 @@
 @import 'src/utils/style-utils.scss';
 
 .questionPage {
+  @include flex-center;
+  align-items: flex-start;
   margin: 0 auto;
-  max-width: 800px;
-  margin-top: 1em;
+  margin-top: 4em;
   margin-bottom: 20em;
+}
+
+.sidePanel {
+  width: 250px;
+}
+
+.mainContent {
+  width: 800px;
 }
 
 .questionCardSecondCol, .answer {
@@ -149,4 +158,37 @@
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.sidePanel {
+  @include flex-column;
+  height: 100%;
+  border-radius: 5px;
+  background: #eee;
+  border: 1px solid #ccc;
+  width: 250px;
+  margin-right: 1em;
+  padding: 1em;
+}
+
+.related {
+  margin-bottom: 2em;
+  border-bottom: 1px solid #999;
+}
+
+.relatedQuestionsLabel {
+  margin-bottom: 0.5em;
+}
+
+.categories, .related {
+  padding-bottom: 1em;
+  div {
+    margin-bottom: 0.5em;
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  div:last-child {
+    margin-bottom: 0;
+  }
 }

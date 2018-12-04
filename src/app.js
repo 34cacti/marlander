@@ -113,7 +113,12 @@ export function view(state, actions) {
       Route({
         path: '/ask',
         render: () =>
-          Ask(state.widgets.maximizedWidget, actions.widgets.maximizeWidget, state),
+          Ask(
+            state.widgets.maximizedWidget,
+            actions.widgets.maximizeWidget,
+            state,
+            actions
+          ),
       }),
     ],
   )
