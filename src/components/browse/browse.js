@@ -80,7 +80,7 @@ function SidePanel(categories) {
 function Categories(categories) {
   return html.div(
     {class: styles.categories},
-    categories.map(c => html.div(c))
+    [...categories, 'more...'].map(c => html.div(c))
   )
 }
 

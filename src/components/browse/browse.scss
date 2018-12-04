@@ -25,6 +25,7 @@
 }
 
 .categories {
+  border-radius: 5px;
   background: #eee;
   border: 1px solid #ccc;
   width: 250px;
@@ -35,6 +36,8 @@
   div {
     margin-bottom: 0.5em;
     color: blue;
+    cursor: pointer;
+    text-decoration: underline;
   }
   div:last-child {
     margin-bottom: 0;

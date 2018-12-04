@@ -10,6 +10,10 @@ $header-foreground: #333;
   height: 50px;
   display: flex;
   justify-content: space-between;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .brand {
@@ -51,5 +55,13 @@ $header-foreground: #333;
       padding-top: 0.25em;
       font-size: 80%;
     }
+  }
+
+  .ask {
+    margin-right: 1em;
+  }
+
+  a {
+    font-weight: bold;
   }
 }

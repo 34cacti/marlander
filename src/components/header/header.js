@@ -25,15 +25,17 @@ function Controls(user) {
         {class: styles.user},
         [
           html.div(user.name),
-          html.div({class: styles.score}, user.score),
+          html.div({class: styles.score}, ['score:', user.score]),
         ]
       ),
-      html.div([
-        html.a({href: '/ask'}, 'Ask'),
-      ]),
-      html.div([
-        html.a({href: '/'}, 'log out'),
-      ]),
+      html.div(
+        {class: styles.ask},
+        [ html.a({href: '/ask'}, 'Ask')]
+      ),
+      html.div(
+        {class: styles.logout},
+        [ html.a({href: '/'}, 'Log out')]
+      ),
     ]
   )
 }
