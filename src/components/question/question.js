@@ -42,7 +42,6 @@ export default function view({
 function RelatedQuestions(questions) {
   const filtered = questions.filter(q => Math.random() > 0.3)
   filtered.length > 7 ? filtered.push('more...') : null
-  console.log(filtered)
   return html.div(
     {class: styles.related},
     filtered.map(q => html.div(q.title)),

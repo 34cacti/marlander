@@ -22,6 +22,11 @@ export const actions = {
     },
   }),
 
+  askTitle: title => (state, actions) => ({
+    ...state,
+    askTitle: title,
+  }),
+
   widgets: {
     maximizeWidget: id => (state, actions) => ({
       ...state,
@@ -67,6 +72,7 @@ export function initialState() {
         tags: data.tags,
       },
       user: 1,
+      askTitle: '',
       widgets: {
         maximizedWidget: null,
         answerPanel: {

@@ -1,9 +1,42 @@
 @import 'src/utils/style-utils.scss';
 
+.askPage {
+  @include flex-center;
+  align-items: flex-start;
+  margin: 0 auto;
+  margin-top: 4em;
+}
+
+.sidePanel {
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 1em;
+
+  border-radius: 5px;
+  position: relative;
+  width: 250px;
+  margin-left: 1em;
+  padding-bottom: 1em;
+  padding-top: 2.5em;
+  div {
+    margin-bottom: 0.5em;
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  div:last-child {
+    margin-bottom: 0;
+  }
+}
+.sidePanel:before {
+  content: 'Related Questions';
+  position: absolute;
+  top: 1em;
+}
+
 .ask {
   @include flex-column;
-  max-width: 800px;
-  margin: 0 auto;
+  width: 800px;
 
   textarea {
     height: 300px !important;
