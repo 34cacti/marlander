@@ -18,6 +18,18 @@
   }
 }
 
+.sidePanel {
+  @include flex-column;
+  height: 100%;
+  border-radius: 5px;
+  background: #eee;
+  border: 1px solid #ccc;
+  width: 250px;
+  margin-right: 1em;
+  padding: 1em;
+  margin-top: 3.3em;
+}
+
 .browse {
   @include flex-row;
   justify-content: center;
@@ -25,14 +37,6 @@
 }
 
 .categories {
-  border-radius: 5px;
-  background: #eee;
-  border: 1px solid #ccc;
-  width: 250px;
-  height: 100%;
-  margin-right: 1em;
-  padding: 1em;
-
   div {
     margin-bottom: 0.5em;
     color: blue;
@@ -44,25 +48,19 @@
   }
 }
 
-.miscItems{
-  background: #eee;
-  //border-left: 1px solid #ccc;
-  //border-right: 1px solid #ccc;
-  font-size: 13px;
-  width: 250px;
-  height: 100%;
-  padding: 1mm;
-  display: inline;
-  text-align: center;
+.miscItems {
+  font-size: 12px;
+  margin-top: 2em;
+
+  & > * {
+    margin-top: 1em;
+  }
 }
 
-.trademark{
-  background: #eee;
+.miscItem {
+  padding-right: 1em;
+  display: inline;
   text-align: center;
-  font-size: 13px;
-  width: 250px;
-  height: 100%;
-  padding: 1mm;
 }
 
 .questions {
@@ -77,7 +75,7 @@
   color: #555;
   border: 1px solid #ccc;
   padding: 1em;
-  
+
   a {
     color: blue;
   }
@@ -96,11 +94,6 @@
 }
 .questionCard:last-child {
   margin-bottom: 0;
-}
-
-.miscItems {
-  margin-top: 14.25mm;
-  margin-bottom: 209.5mm;
 }
 
 .sortButton {

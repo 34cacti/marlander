@@ -39,6 +39,18 @@ function QuestionCard(id, question, data) {
   )
 }
 
+function MainContent(data) {
+  return html.div(
+    {
+      class: styles.mainSection,
+    },
+    [
+      Sort(),
+      Questions(data),
+    ]
+  )
+}
+
 function Sort() {
   return html.div(
     {
@@ -52,22 +64,10 @@ function Sort() {
   )
 }
 
-function MainContent(data) {
-  return html.div(
-    {
-      class: styles.mainSection,
-    },
-    [
-      Sort(),
-      Questions(data),
-    ]
-  )
-}
-
 function SidePanel(categories) {
   return html.div(
     {
-      //class: styles.miscItems,
+      class: styles.sidePanel,
     },
     [
       Promo(),
@@ -96,17 +96,20 @@ function Promo() {
 function MiscItems() {
   return html.div(
     {
-      //class: styles.miscItems,
+      class: styles.miscItems,
     },
     [
-      html.div({class: styles.trademark}, '© 2018 FCFS, Inc.'),
-      html.div({class: styles.miscItems} , 'Terms'),
-      html.div({class: styles.miscItems}, 'Privacy'),
-      html.div({class: styles.miscItems}, 'Security'),
-      html.div({class: styles.lineBreak}, ''),
-      html.div({class: styles.miscItems}, 'Contact'),
-      html.div({class: styles.miscItems}, 'Careers'),
-      html.div({class: styles.miscItems}, 'Advertise'),
+      html.div('© 2018 FCFS, Inc.'),
+      html.div([
+        html.div({class: styles.miscItem}, 'Terms'),
+        html.div({class: styles.miscItem}, 'Privacy'),
+        html.div({class: styles.miscItem}, 'Security'),
+      ]),
+      html.div([
+        html.div({class: styles.miscItem}, 'Contact'),
+        html.div({class: styles.miscItem}, 'Careers'),
+        html.div({class: styles.miscItem}, 'Advertise'),
+      ]),
     ]
   )
 }
