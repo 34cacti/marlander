@@ -7,37 +7,146 @@
   margin-bottom: 20em;
 }
 
-.question, .answer {
+.questionCardSecondCol, .answer {
   background: #eee;
   padding: 1em;
 }
 
+.answer {
+  background: none;
+}
+
+.question, .answer {
+  @include flex-column;
+  margin-bottom: 3em;
+}
+
 .question {
+  padding-bottom: 2em;
+  border-bottom: 1px solid #999;
+}
+
+.questionFirstRow {
+  @include flex-row;
+
+  .questionCardFirstCol {
+    @include flex-column;
+    justify-content: space-between;
+    width: 75px;
+    margin-right: 1em;
+  }
+
+  .questionCardSecondCol {
+    @include flex-column;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.questionTitle {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.questionAnswerContainer {
+  @include flex-row;
+  flex-direction: row-reverse;
+  margin-top: 1em;
 }
 
 .answers {
   margin-top: 1em;
 }
 
-.comments {
+.answerCardSecondCol {
+  @include flex-column;
+  width: 100%;
+  background: #eee;
+  padding: 1em;
+}
 
+.score {
+  @include flex-center;
+  @include flex-column;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 1em;
+
+  .vote {
+    font-size: 1.5em;
+  }
+}
+
+.user {
+  @include flex-column;
+  @include flex-center;
+  font-weight: bold;
+
+  .score {
+    font-weight: normal;
+    font-size: 80%;
+    color: #555;
+  }
+}
+
+.commentsLabel {
+  margin: 1em  0 0.5em;
+  color: #555;
+  font-size: 9pt;
 }
 
 .comment {
   @include flex-row;
-  font-size: 80%;
+  font-size: 9pt;
   color: #555;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.5em;
   &:last-child { margin-bottom: 0; }
-
-  .commentUser {
-
-  }
 
   .commentBody {
     margin-right: 1em;
   }
 }
 
-.contentBody {
+.tags {
+  font-size: 80%;
+  color: #555;
+  cursor: pointer;
+  text-decoration: underline;
+
+  .tag {
+    margin-right: 0.5em;
+  }
+  .tag:last-child {
+    margin-right: none;
+  }
+}
+
+.addComment {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.answerComments {
+  margin-top: 1em;
+}
+
+.expandableContent {
+  position: relative;
+  background: #eee;
+
+  .content {
+    background: #eee;
+    height: 100%;
+    width: 100%;
+  }
+
+  &.fullscreen > .content {
+    padding: 1em;
+  }
+}
+
+.maximizeButton {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

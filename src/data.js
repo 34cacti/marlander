@@ -100,7 +100,7 @@ export const comments = [
 ]
 
 export const answers = [
-  createAnswer({user: 0, body: 'Idk. ask stackoverflow'}),
+  createAnswer({user: 0, body: 'Idk. ask stackoverflow', comments: [1, 2]}),
 ]
 
 export const tags = [

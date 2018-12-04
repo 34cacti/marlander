@@ -46,8 +46,15 @@
   }
 
   .maximizeButton {
-    right: 20px;
-    top: 65px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #eee;
+    border-radius: 100%;
+    padding: 4px;
+    line-height: 23pt;
+    // right: 20px;
+    // top: 65px;
   }
 }
 
