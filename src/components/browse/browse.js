@@ -67,12 +67,12 @@ function MainContent(data) {
 function SidePanel(categories) {
   return html.div(
     {
-      class: styles.miscItems,
+      //class: styles.miscItems,
     },
     [
       Promo(),
-      MiscItems(),
       Categories(categories),
+      MiscItems(),
     ]
   )
 }
@@ -95,9 +95,18 @@ function Promo() {
 
 function MiscItems() {
   return html.div(
-    {},
+    {
+      //class: styles.miscItems,
+    },
     [
-
+      html.div({class: styles.trademark}, '© 2018 FCFS, Inc.'),
+      html.div({class: styles.miscItems} , 'Terms'),
+      html.div({class: styles.miscItems}, 'Privacy'),
+      html.div({class: styles.miscItems}, 'Security'),
+      html.div({class: styles.lineBreak}, ''),
+      html.div({class: styles.miscItems}, 'Contact'),
+      html.div({class: styles.miscItems}, 'Careers'),
+      html.div({class: styles.miscItems}, 'Advertise'),
     ]
   )
 }

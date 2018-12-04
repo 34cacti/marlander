@@ -44,6 +44,27 @@
   }
 }
 
+.miscItems{
+  background: #eee;
+  //border-left: 1px solid #ccc;
+  //border-right: 1px solid #ccc;
+  font-size: 13px;
+  width: 250px;
+  height: 100%;
+  padding: 1mm;
+  display: inline;
+  text-align: center;
+}
+
+.trademark{
+  background: #eee;
+  text-align: center;
+  font-size: 13px;
+  width: 250px;
+  height: 100%;
+  padding: 1mm;
+}
+
 .questions {
   @include flex-column;
   width: 800px;
