@@ -25,7 +25,7 @@ function Controls(user) {
         {class: styles.user},
         [
           html.div(user.name),
-          html.div({class: styles.score}, ['score:', user.score]),
+          html.div({class: styles.score}, [user.score, ' \u2605']),
         ]
       ),
       html.div(

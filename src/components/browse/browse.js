@@ -53,7 +53,7 @@ function QuestionCard(id, question, data) {
           ),
           html.div({class: styles.user}, [
             html.div(data.users[question.user].name),
-            html.div({class: styles.userCursor}, ['score:', data.users[question.user].score]),
+            html.div({class: styles.userCursor}, [data.users[question.user].score, '\u2605']),
           ]),
         ]
       ),
