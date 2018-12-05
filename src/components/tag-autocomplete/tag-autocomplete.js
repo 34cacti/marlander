@@ -15,7 +15,8 @@ export default function view({
     {},
     [
       CurrentTags(currentTags, removeTag),
-      AutoCompleteInput(currentWord, updateCurrentWord, suggestions, selectSuggestion, allTags),
+      AutoCompleteInput(
+        currentWord, updateCurrentWord, suggestions, selectSuggestion, allTags),
     ]
   )
 }
@@ -31,11 +32,22 @@ function AutoCompleteInput(
         oninput: ev => {
           updateCurrentWord({word: ev.target.value, allTags})
         },
+        onkeydown: ev => {
+          if (ev.key !== 'Enter') return
+          selectSuggestion(ev.target.value)
+        },
       }),
       html.div(
         {class: styles.suggestions},
         suggestions.map(s =>
-          html.div({onclick: () => selectSuggestion(s.id)}, s)
+          html.div(
+            {
+              onclick: () => {
+                selectSuggestion(s)
+              },
+            },
+            s
+          )
         ),
       ),
     ]
@@ -46,7 +58,7 @@ function CurrentTags(current, remove) {
   return html.div(
     {class: styles.currentTags},
     [
-      current.map((c, i) => CompletedTag(c, () => remove(i))),
+      current.map(c => CompletedTag(c, remove)),
     ]
   )
 }
@@ -56,7 +68,7 @@ function CompletedTag(tag, remove) {
     {class: styles.completedTag},
     [
       html.div({class: styles.completedTagLabel}, tag),
-      html.div({class: styles.completedTagRemove, onclick: () => remove()}, 'x'),
+      html.div({class: styles.completedTagRemove, onclick: () => remove(tag)}, 'x'),
     ]
   )
 }

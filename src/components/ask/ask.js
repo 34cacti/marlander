@@ -34,6 +34,7 @@ function Form(maximized, maximize, state, actions) {
         suggestions: state.widgets.autocomplete.suggestions,
         selectSuggestion: actions.widgets.autocomplete.selectSuggestion,
         allTags: state.data.tags,
+        removeTag: actions.widgets.autocomplete.removeTag,
       }),
     ]
   )

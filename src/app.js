@@ -34,13 +34,20 @@ export const actions = {
           currentWord: word,
           suggestions: createSuggestions(allTags, word),
       }),
-      selectSuggestion: tagId => (state, actions) => {
+      selectSuggestion: tag => (state, actions) => {
+        if (state.currentTags.includes(tag)) return
+
         return {
           ...state,
-          currentWord: null,
-          currentTags: [...state.currentTags],
+          currentWord: '',
+          suggestions: [],
+          currentTags: [...state.currentTags, tag],
         }
       },
+      removeTag: tag => (state, actions) => ({
+        ...state,
+        currentTags: state.currentTags.filter(t => t !== tag),
+      }),
     },
     maximizeWidget: id => (state, actions) => ({
       ...state,
