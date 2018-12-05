@@ -13,8 +13,9 @@
     box-sizing: border-box;
     padding: 0.5em;
     border: none;
-    background: #eee;
+    background: #F5F1E3;
     margin-bottom: 1em;
+
   }
 }
 
@@ -42,9 +43,16 @@
 }
 
 .postButton {
-  margin-right: 0.5em;
+  background-color: #5075F5;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
   width: 4em;
-  background: #F5F1E3;
-  color: #555;
+  font-size: 16px;
+  margin-right: 0.5em;
+  margin-bottom: 2em;
+  transition: 0.3s;
+  text-decoration: none;
   cursor: pointer;
 }

@@ -28,6 +28,7 @@
 .question, .answer {
   @include flex-column;
   margin-bottom: 3em;
+  background: #F5F1E3;
 }
 
 .question {
@@ -43,6 +44,7 @@
     justify-content: space-between;
     width: 75px;
     margin-right: 1em;
+    background: #F5F1E3;
   }
 
   .questionCardSecondCol {
@@ -70,8 +72,9 @@
 .answerCardSecondCol {
   @include flex-column;
   width: 100%;
-  background: #eee;
+  background: #F5F1E3;
   padding: 1em;
+
 }
 
 .score {
@@ -141,10 +144,10 @@
 
 .expandableContent {
   position: relative;
-  background: #eee;
+  background: #F5F1E3;
 
   .content {
-    background: #eee;
+    background: #F5F1E3;
     height: 100%;
     width: 100%;
   }
@@ -164,7 +167,7 @@
   @include flex-column;
   height: 100%;
   border-radius: 5px;
-  background: #eee;
+  background: #E3E7F5;
   border: 1px solid #ccc;
   width: 250px;
   margin-right: 1em;
@@ -191,4 +194,21 @@
   div:last-child {
     margin-bottom: 0;
   }
+}
+
+.answerButton {
+  background-color: #5075F5;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 4px;
+  opacity: 0.75;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.answerButton:hover {
+  opacity: 1
 }

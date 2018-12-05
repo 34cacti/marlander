@@ -28,6 +28,7 @@ function AutoCompleteInput(
     {class: styles.autoCompleteInputContainer},
     [
       html.input({
+        class: styles.tagBar, placeholder: 'Tags',
         value: currentWord,
         oninput: ev => {
           updateCurrentWord({word: ev.target.value, allTags})

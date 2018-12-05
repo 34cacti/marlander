@@ -21,9 +21,11 @@ function Form(maximized, maximize, state, actions) {
       html.div(
         {class: styles.firstRow},
         [
-          html.input({oninput: ev => actions.askTitle(ev.target.value)}),
-          html.button({onclick: () => {
-            window.location.href = '/'
+          html.input({class: styles.titleBar, placeholder: 'Title of Post',
+            oninput: ev => actions.askTitle(ev.target.value)
+          }),
+          html.button({class: styles.postButton,
+            onclick: () => {window.location.href = '/'
           }}, 'Post'),
         ]
       ),

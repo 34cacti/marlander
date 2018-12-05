@@ -8,7 +8,7 @@
 }
 
 .sidePanel {
-  background: #eee;
+  background: #E3E7F5;
   border: 1px solid #ccc;
   padding: 1em;
 
@@ -52,4 +52,26 @@
     flex: auto;
     margin-right: 1em;
   }
+}
+
+.postButton {
+  background-color: #5075F5;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  width: 4em;
+  font-size: 16px;
+  margin-right: 4px;
+  opacity: 0.75;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.postButton:hover {
+  opacity: 1
+}
+
+.titleBar{
+  background: #F5F1E3;
 }

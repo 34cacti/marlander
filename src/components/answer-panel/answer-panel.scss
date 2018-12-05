@@ -6,7 +6,7 @@
   right: 0;
   bottom: 0;
   padding: 0 1em 1em;
-  background: #ccc;
+  background: #E3E7F5;
 
   textarea {
     resize: none;
@@ -28,6 +28,8 @@
 .topBar {
   @include flex-row;
   flex-direction: row-reverse;
+  background: #E3E7F5;
+
 }
 .closeButton {
   background: none;

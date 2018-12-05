@@ -72,7 +72,12 @@ function Question(question, data, toggleAnswerPanel, maximized, maximize) {
 function QuestionAnswerContainer(toggleAnswerPanel) {
   return html.div(
     {class: styles.questionAnswerContainer},
-    html.button({ onclick: () => toggleAnswerPanel() }, 'Answer'),
+    html.button(
+      {class: styles.answerButton,
+      onclick: () => toggleAnswerPanel()
+      },
+      'Answer'
+    ),
   )
 }
 
@@ -95,7 +100,7 @@ function QuestionFirstRow(question, data, maximized, maximize) {
             {class: styles.user},
             [
               html.div(data.users[question.user].name),
-              html.div({class: styles.score}, ['score:', data.users[question.user].score]),
+              html.div({class: styles.score}, ['\u2605', data.users[question.user].score]),
             ]
           ),
         ]
@@ -200,7 +205,7 @@ function AnswerFirstRow(answer, data, maximized, maximize) {
             {class: styles.user},
             [
               html.div(data.users[answer.user].name),
-              html.div({class: styles.score}, ['score:', data.users[answer.user].score]),
+              html.div({class: styles.score}, ['\u2605', data.users[answer.user].score]),
             ]
           ),
         ]

@@ -5,7 +5,7 @@
 
   .suggestions {
     border: 1px solid #eee;
-    background: #f8f8f8;
+    background: #F5F1E3;
 
     div {
       padding: 0.5em;
@@ -27,6 +27,7 @@
   padding: 0.5em;
   border-radius: 5px;
   border: 1px solid #eee;
+  background: #E3E7F5;
   margin-right: 1em;
 }
 
@@ -42,4 +43,8 @@
 
 .completedTagLabel {
   margin-right: 1em;
+}
+
+.tagBar {
+  background: #F5F1E3;
 }
