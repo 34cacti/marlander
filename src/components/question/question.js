@@ -89,15 +89,15 @@ function QuestionFirstRow(question, data, maximized, maximize) {
         {class: styles.questionCardFirstCol},
         [
           html.div(
-            {class: styles.score},
+            //{class: styles.questionScore},
             [
-              html.div({class: styles.vote}, '▲'),
-              html.div({class: styles.vote}, '▼'),
-              html.div({ class: styles.score }, question.score),
+              html.div({class: styles.upvote}, '▲'),
+              html.div({class: styles.downvote}, '▼'),
+              html.div({ class: styles.questionScore }, question.score),
             ]
           ),
           html.div(
-            {class: styles.user},
+            {class: styles.questionPoster},
             [
               html.div(data.users[question.user].name),
               html.div({class: styles.score}, ['\u2605', data.users[question.user].score]),
@@ -194,15 +194,15 @@ function AnswerFirstRow(answer, data, maximized, maximize) {
         {class: styles.questionCardFirstCol},
         [
           html.div(
-            {class: styles.score},
+            //{class: styles.score},
             [
-              html.div({class: styles.vote}, '▲'),
-              html.div({class: styles.vote}, '▼'),
-              html.div({ class: styles.score }, answer.score),
+              html.div({class: styles.upvote}, '▲'),
+              html.div({class: styles.downvote}, '▼'),
+              html.div({ class: styles.answerScore }, answer.score),
             ]
           ),
           html.div(
-            {class: styles.user},
+            {class: styles.answerPoster},
             [
               html.div(data.users[answer.user].name),
               html.div({class: styles.score}, ['\u2605', data.users[answer.user].score]),
