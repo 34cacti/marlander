@@ -37,7 +37,7 @@ function Toolbar(actionButton) {
           toolbarButton('☰│'),
         ]
       ),
-      toolbarButton('Post', styles.postButton),
+      actionButton ? toolbarButton('Post', styles.postButton) : null,
     ]
   )
 }

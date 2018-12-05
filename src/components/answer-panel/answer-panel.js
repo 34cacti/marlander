@@ -32,7 +32,7 @@ export default function view({data, actions}, toggleAnswerPanel, maximized, maxi
           ),
         ],
       ),
-      Editor(maximized, maximize, html.button('Post')),
+      Editor(maximized, maximize, true),
     ],
   )
 }
