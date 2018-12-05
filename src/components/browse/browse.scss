@@ -22,7 +22,7 @@
   @include flex-column;
   height: 100%;
   border-radius: 5px;
-  background: #eee;
+  background: #E3E7F5;
   border: 1px solid #ccc;
   width: 250px;
   margin-right: 1em;
@@ -75,10 +75,12 @@
   @include flex-row;
   margin-bottom: 1em;
   border-radius: 5px;
-  background: #eee;
+  background: #F5F1E3;
   color: #555;
   border: 1px solid #ccc;
   padding: 1em;
+  transition: 0.2s;
+  text-decoration: none;
 
   & > div:first-child {
     flex: auto;
@@ -104,6 +106,10 @@
 }
 .questionCard:last-child {
   margin-bottom: 0;
+}
+
+.questionCard:hover {
+  border: 1px solid gray;
 }
 
 .questionCardScoreContainer {
@@ -142,26 +148,28 @@
 }
 
 .sortButton {
-  background-color: #a5a3a3;
+  background-color: #5075F5;
   border-radius: 5px;
   color: white;
   padding: 10px 20px;
   text-align: center;
   font-size: 16px;
   margin-right: 4px;
-  opacity: 0.6;
+  opacity: 0.75;
   transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
 }
-.sortButton:hover {opacity: 1}
+.sortButton:hover {
+  opacity: 1
+}
 
 .promoItem{
   position: relative;
   margin-top: 2em;
   box-sizing: border-box;
   height: 200px;
-  background: linear-gradient(45deg, blue, cyan);
+  background: linear-gradient(45deg, #B2C1F5, #9AAEF5);
   font-size: 1em;
   color: white;
   display: flex;
@@ -171,6 +179,7 @@
   padding: 1em;
   line-height: 1.5em;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 
   &:before {
     content: 'Ad by GeekAds LLC. Provide Feedback';
@@ -181,6 +190,6 @@
     bottom: -0.25em;
     right: 0.5em;
     text-decoration: underline;
-    cursor: pointer;
   }
+
 }

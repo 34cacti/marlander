@@ -1,6 +1,6 @@
 @import 'src/utils/style-utils.scss';
 
-$header-background: #eee;
+$header-background: #E3E7F5;
 $header-foreground: #333;
 
 .header {
@@ -36,9 +36,9 @@ $header-foreground: #333;
   padding: 0.5em;
 
   .search {
-    background: #e7e7e7;
+    background: #F5F1E3;
     border: 1px solid #ddd;
-    margin-right: 4cm;
+    margin-right: 3.5cm;
     width: 15cm;
     padding-left: 1em;
   }
@@ -49,8 +49,9 @@ $header-foreground: #333;
   .user {
     @include flex-center;
     @include flex-column;
+    font-weight: bold;
     padding: 1em;
-    margin-right: 1cm;
+    margin-right: 0.5cm;
 
     .score {
       padding-top: 0.25em;
@@ -60,6 +61,15 @@ $header-foreground: #333;
 
   .ask {
     margin-right: 1em;
+    margin-top: 0.5em;
+  }
+
+  a {
+    font-weight: bold;
+  }
+
+  .logout {
+    margin-top: 0.5em;
   }
 
   a {
