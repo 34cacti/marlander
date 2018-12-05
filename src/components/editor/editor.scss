@@ -36,6 +36,11 @@
   border: 1px solid #555;
   margin: 0.5em;
   margin-right: 0;
+  user-select: none;
+  cursor: pointer;
+}
+.toolbarButton:active {
+  background: #5075F5;
 }
 
 .toolbarRight {

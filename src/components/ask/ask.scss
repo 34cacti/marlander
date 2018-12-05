@@ -70,6 +70,7 @@
   text-decoration: none;
   cursor: pointer;
   border: none;
+  user-select: none;
 }
 .postButton:hover {
   opacity: 1

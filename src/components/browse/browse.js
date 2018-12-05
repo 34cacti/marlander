@@ -46,9 +46,9 @@ function QuestionCard(id, question, data) {
           html.div(
             {class: styles.questionCardScoreContainer},
             [
-              html.div('⬆'),
+              html.div({class: styles.vote}, '⬆'),
               html.div({class: styles.questionCardScore}, question.score),
-              html.div('⬇'),
+              html.div({class: styles.vote}, '⬇'),
             ]
           ),
           html.div({class: styles.user}, [
