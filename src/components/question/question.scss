@@ -84,17 +84,6 @@
   //font-weight: bold;
   margin-bottom: 1em;
 
-  .vote {
-    font-size: 1.5em;
-    cursor: pointer;
-    user-select: none;
-  }
-  .vote:hover {
-    color: #5075F5;
-  }
-  .vote:active {
-    color: #f55070;
-  }
 }
 
 .user {
@@ -263,4 +252,16 @@
   margin-left: 1em;
   font-size: 1.5em;
 
+}
+
+.vote {
+    font-size: 1.5em;
+    cursor: pointer;
+    user-select: none;
+}
+.vote:hover {
+    color: #5075F5;
+}
+.vote:active {
+    color: #f55070;
 }

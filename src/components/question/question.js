@@ -97,10 +97,10 @@ function QuestionFirstRow(question, data, maximized, maximize) {
         {class: styles.questionCardFirstCol},
         [
           html.div(
-            //{class: styles.questionScore},
+            // {class: styles.questionScore},
             [
-              html.div({class: styles.upvote}, '▲'),
-              html.div({class: styles.downvote}, '▼'),
+              html.div({class: classNames(styles.vote, styles.upvote)}, '▲'),
+              html.div({class: classNames(styles.vote, styles.downvote)}, '▼'),
               html.div({ class: styles.questionScore }, question.score),
             ]
           ),
@@ -204,8 +204,8 @@ function AnswerFirstRow(answer, data, maximized, maximize) {
           html.div(
             //{class: styles.score},
             [
-              html.div({class: styles.upvote}, '▲'),
-              html.div({class: styles.downvote}, '▼'),
+              html.div({class: classNames(styles.vote, styles.upvote)}, '▲'),
+              html.div({class: classNames(styles.vote, styles.downvote)}, '▼'),
               html.div({ class: styles.answerScore }, answer.score),
             ]
           ),
