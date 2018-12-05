@@ -20,6 +20,7 @@
 
 .toolbar {
   @include flex-row;
+  justify-content: space-between;
   background: #333;
   color: #ddd;
 }
@@ -34,4 +35,16 @@
   border: 1px solid #555;
   margin: 0.5em;
   margin-right: 0;
+}
+
+.toolbarRight {
+  @include flex-row;
+}
+
+.postButton {
+  margin-right: 0.5em;
+  width: 4em;
+  background: #F5F1E3;
+  color: #555;
+  cursor: pointer;
 }

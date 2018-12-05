@@ -1,5 +1,4 @@
 import * as html from '@hyperapp/html'
-import classNames from 'classnames'
 
 import styles from './ask.scss'
 import Editor from '../editor/editor'
@@ -23,7 +22,9 @@ function Form(maximized, maximize, state, actions) {
         {class: styles.firstRow},
         [
           html.input({oninput: ev => actions.askTitle(ev.target.value)}),
-          html.button('Post'),
+          html.button({onclick: () => {
+            window.location.href = '/'
+          }}, 'Post'),
         ]
       ),
       Editor(maximized, maximize),

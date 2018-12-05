@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import styles from './editor.scss'
 import MaximizeButton from '../maximize-button/maximize-button'
 
-export default function view(maximized, maximize, actionButton = null) {
+export default function view(maximized, maximize, actionButton = false) {
   return html.div(
     {
       id: 'ask-editor',
@@ -18,20 +18,26 @@ export default function view(maximized, maximize, actionButton = null) {
   )
 }
 
-function Toolbar() {
+function Toolbar(actionButton) {
   return html.div(
     {
       class: styles.toolbar,
     },
     [
-      toolbarButton('B'),
-      toolbarButton('I'),
-      toolbarButton('U'),
-      toolbarButton('“...„'),
-      toolbarButton('</a>'),
-      toolbarButton('│☰'),
-      toolbarButton('☰'),
-      toolbarButton('☰│'),
+      html.div(
+        {class: styles.toolbarRight},
+        [
+          toolbarButton('B'),
+          toolbarButton('I'),
+          toolbarButton('U'),
+          toolbarButton('“...„'),
+          toolbarButton('</a>'),
+          toolbarButton('│☰'),
+          toolbarButton('☰'),
+          toolbarButton('☰│'),
+        ]
+      ),
+      toolbarButton('Post', styles.postButton),
     ]
   )
 }
