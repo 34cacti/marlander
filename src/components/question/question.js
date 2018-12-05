@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import styles from './question.scss'
 import AnswerPanel from '../answer-panel/answer-panel'
 import MaximizeButton from '../maximize-button/maximize-button'
+import {searchString} from '../../utils/search-string'
 
 export default function view({
     id,
@@ -21,7 +22,7 @@ export default function view({
         {class: styles.sidePanel},
         [
           html.div({class: styles.relatedQuestionsLabel}, 'Related Questions'),
-          RelatedQuestions(data.questions),
+          RelatedQuestions(q.title, data.questions),
           Categories(data.tags),
         ]
       ),
@@ -39,9 +40,15 @@ export default function view({
   )
 }
 
-function RelatedQuestions(questions) {
-  const filtered = questions.filter(q => Math.random() > 0.3)
-  filtered.length > 7 ? filtered.push('more...') : null
+function RelatedQuestions(title, questions) {
+  let filtered = questions.filter(q =>
+    searchString(q.title, title.split(' ')))
+
+  if (filtered.length > 5) {
+    filtered = filtered.slice(0, 5)
+    filtered.push({title: 'more...'})
+  }
+
   return html.div(
     {class: styles.related},
     filtered.map(q => html.div(q.title)),
@@ -51,7 +58,7 @@ function RelatedQuestions(questions) {
 function Categories(categories) {
   return html.div(
     {class: styles.categories},
-    [...categories, 'more...'].map(c => html.div(c))
+    [...categories.slice(0, 15), 'more...'].map(c => html.div(c))
   )
 }
 
@@ -73,8 +80,9 @@ function QuestionAnswerContainer(toggleAnswerPanel) {
   return html.div(
     {class: styles.questionAnswerContainer},
     html.button(
-      {class: styles.answerButton,
-      onclick: () => toggleAnswerPanel()
+      {
+        class: styles.answerButton,
+        onclick: () => toggleAnswerPanel(),
       },
       'Answer'
     ),
@@ -100,7 +108,7 @@ function QuestionFirstRow(question, data, maximized, maximize) {
             {class: styles.user},
             [
               html.div(data.users[question.user].name),
-              html.div({class: styles.score}, ['\u2605', data.users[question.user].score]),
+              html.div({class: styles.score}, [data.users[question.user].score, '\u2605']),
             ]
           ),
         ]
@@ -205,7 +213,7 @@ function AnswerFirstRow(answer, data, maximized, maximize) {
             {class: styles.user},
             [
               html.div(data.users[answer.user].name),
-              html.div({class: styles.score}, ['\u2605', data.users[answer.user].score]),
+              html.div({class: styles.score}, [data.users[answer.user].score, '\u2605']),
             ]
           ),
         ]

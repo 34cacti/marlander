@@ -33,7 +33,6 @@
 
 .question {
   padding-bottom: 2em;
-  border-bottom: 1px solid #999;
 }
 
 .questionFirstRow {
@@ -199,6 +198,7 @@
 .answerButton {
   background-color: #5075F5;
   border-radius: 5px;
+  border: none;
   color: white;
   padding: 10px 20px;
   text-align: center;

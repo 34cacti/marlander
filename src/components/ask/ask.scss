@@ -51,6 +51,8 @@
   input {
     flex: auto;
     margin-right: 1em;
+    border: 1px solid #eee;
+    padding: 0.5em 1em;
   }
 }
 
@@ -67,6 +69,7 @@
   transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
+  border: none;
 }
 .postButton:hover {
   opacity: 1

@@ -38,7 +38,7 @@ $header-foreground: #333;
   .search {
     background: #F5F1E3;
     border: 1px solid #ddd;
-    margin-right: 3.5cm;
+    margin-right: 17em;
     width: 15cm;
     padding-left: 1em;
   }
@@ -60,8 +60,20 @@ $header-foreground: #333;
   }
 
   .ask {
+    @include flex-center;
     margin-right: 1em;
-    margin-top: 0.5em;
+    border-radius: 5px;
+    background-color: #5075F5;
+    border-radius: 5px;
+    border: none;
+    padding: 1em;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 4px;
+    opacity: 0.75;
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   a {
@@ -69,11 +81,24 @@ $header-foreground: #333;
   }
 
   .logout {
-    margin-top: 0.5em;
+    @include flex-center;
+    a { font-size: 9pt; }
+    margin-left: 2em;
+    border-radius: 5px;
+    border: 1px solid #5075F5;
+    a { color: #5075F5; }
+    width: 70px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 4px;
+    opacity: 0.75;
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   a {
     font-weight: bold;
-    color: blue;
+    color: white;
   }
 }

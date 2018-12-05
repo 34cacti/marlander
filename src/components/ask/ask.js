@@ -3,6 +3,7 @@ import * as html from '@hyperapp/html'
 import styles from './ask.scss'
 import Editor from '../editor/editor'
 import TagAutocomplete from '../tag-autocomplete/tag-autocomplete'
+import {searchString} from '../../utils/search-string'
 
 export default function view(maximized, maximize, state, actions) {
   return html.div(
@@ -44,10 +45,14 @@ function Form(maximized, maximize, state, actions) {
 }
 
 function SidePanel(state, currentQuestionTitle) {
-  const filtered = state.data.questions.filter(q =>
+  let filtered = state.data.questions.filter(q =>
     searchString(q.title, currentQuestionTitle.split(' ')))
 
-  filtered.length > 7 ? filtered.push('more...') : null
+  if (filtered.length > 5) {
+    filtered = filtered.slice(0, 5)
+    filtered.push({title: 'more...'})
+  }
+
   return html.div(
     {
       class: styles.sidePanel,
@@ -55,13 +60,4 @@ function SidePanel(state, currentQuestionTitle) {
     },
     filtered.map(q => html.div(q.title)),
   )
-}
-
-function searchString(str, tokens) {
-  if (tokens.length === 0 || tokens[0] === '') return false
-
-  const strLower = str.toLowerCase()
-  for (const token of tokens)
-    if (strLower.includes(token.toLowerCase())) return true
-  return false
 }
